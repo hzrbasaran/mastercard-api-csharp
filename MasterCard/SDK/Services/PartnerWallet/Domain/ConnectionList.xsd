@@ -1,0 +1,31 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ConnectionList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Connection" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:int" name="ConnectionId"/>
+              <xs:element type="xs:string" name="MerchantName"/>
+              <xs:element name="Logo">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Url"/>
+                    <xs:element type="xs:string" name="AlternateText" minOccurs="0"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element type="xs:string" name="DataTypes" minOccurs="0"/>
+              <xs:element type="xs:string" name="OneClickSupported"/>
+              <xs:element type="xs:string" name="OneClickEnabled"/>
+              <xs:element type="xs:string" name="LastUpdatedUsed" minOccurs="0"/>
+              <xs:element type="xs:string" name="ConnectedSinceDate"/>
+              <xs:element type="xs:string" name="ExpirationDate" minOccurs="0"/>
+              <xs:element type="xs:string" name="MerchantUrl"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

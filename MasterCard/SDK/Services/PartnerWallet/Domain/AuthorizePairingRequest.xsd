@@ -1,0 +1,43 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AuthorizePairingRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="PairingDataTypes">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PairingDataType" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Type"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element type="xs:string" name="OAuthToken"/>
+        <xs:element type="xs:string" name="MerchantCheckoutId"/>
+        <xs:element type="xs:byte" name="ConsumerWalletId"/>
+        <xs:element type="xs:string" name="WalletId"/>
+        <xs:element type="xs:string" name="ExpressCheckout"/>
+        <xs:element name="ConsumerCountry">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="Code"/>
+              <xs:element type="xs:string" name="Name"/>
+              <xs:element type="xs:byte" name="CallingCode"/>
+              <xs:element name="Locale">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="Locale"/>
+                    <xs:element type="xs:string" name="Language"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

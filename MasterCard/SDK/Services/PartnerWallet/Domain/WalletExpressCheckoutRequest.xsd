@@ -1,0 +1,20 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="WalletExpressCheckoutRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="MerchantCheckoutId"/>
+        <xs:element type="xs:string" name="OauthToken"/>
+        <xs:element type="xs:string" name="OriginUrl"/>
+        <xs:element type="xs:string" name="CurrencyCode"/>
+        <xs:element type="xs:double" name="OrderAmount"/>
+        <xs:element type="xs:int" name="PrecheckoutTransactionId"/>
+        <xs:element type="xs:int" name="ConsumerWalletId"/>
+        <xs:element type="xs:string" name="MerchantParameterId"/>
+        <xs:element type="xs:int" name="CardId"/>
+        <xs:element type="xs:int" name="ShippingAddressId"/>
+        <xs:element type="xs:int" name="RewardProgramId"/>
+        <xs:element type="xs:int" name="WalletId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

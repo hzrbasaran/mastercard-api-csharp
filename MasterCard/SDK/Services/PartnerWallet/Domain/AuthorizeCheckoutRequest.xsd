@@ -1,0 +1,105 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AuthorizeCheckoutRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="OAuthToken"/>
+        <xs:element name="AuthorizedCheckout">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Card">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="BrandId"/>
+                    <xs:element type="xs:string" name="BrandName"/>
+                    <xs:element type="xs:long" name="AccountNumber"/>
+                    <xs:element name="BillingAddress">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="City"/>
+                          <xs:element type="xs:string" name="Country"/>
+                          <xs:element type="xs:string" name="CountrySubdivision"/>
+                          <xs:element type="xs:string" name="Line1"/>
+                          <xs:element type="xs:string" name="Line2"/>
+                          <xs:element type="xs:string" name="Line3"/>
+                          <xs:element type="xs:short" name="PostalCode"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="CardHolderName"/>
+                    <xs:element type="xs:byte" name="ExpiryMonth"/>
+                    <xs:element type="xs:short" name="ExpiryYear"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Contact">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="FirstName"/>
+                    <xs:element type="xs:string" name="MiddleName"/>
+                    <xs:element type="xs:string" name="LastName"/>
+                    <xs:element type="xs:string" name="Gender"/>
+                    <xs:element name="DateOfBirth">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:short" name="Year"/>
+                          <xs:element type="xs:byte" name="Month"/>
+                          <xs:element type="xs:byte" name="Day"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element type="xs:string" name="Country"/>
+                    <xs:element type="xs:string" name="EmailAddress"/>
+                    <xs:element type="xs:long" name="PhoneNumber"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="ShippingAddress">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="City"/>
+                    <xs:element type="xs:string" name="Country"/>
+                    <xs:element type="xs:string" name="CountrySubdivision"/>
+                    <xs:element type="xs:string" name="Line1"/>
+                    <xs:element type="xs:string" name="Line2"/>
+                    <xs:element type="xs:string" name="Line3"/>
+                    <xs:element type="xs:int" name="PostalCode"/>
+                    <xs:element type="xs:string" name="RecipientName"/>
+                    <xs:element type="xs:string" name="RecipientPhoneNumber"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="AuthenticationOptions">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="AuthenticateMethod"/>
+                    <xs:element type="xs:string" name="CardEnrollmentMethod"/>
+                    <xs:element type="xs:string" name="CAvv"/>
+                    <xs:element type="xs:byte" name="EciFlag"/>
+                    <xs:element type="xs:string" name="MasterCardAssignedID"/>
+                    <xs:element type="xs:string" name="PaResStatus"/>
+                    <xs:element type="xs:string" name="SCEnrollmentStatus"/>
+                    <xs:element type="xs:string" name="SignatureVerification"/>
+                    <xs:element type="xs:string" name="Xid"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="RewardProgram">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:int" name="RewardNumber"/>
+                    <xs:element type="xs:string" name="RewardId"/>
+                    <xs:element type="xs:string" name="RewardName"/>
+                    <xs:element type="xs:byte" name="ExpiryMonth"/>
+                    <xs:element type="xs:short" name="ExpiryYear"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element type="xs:string" name="PreCheckoutTransactionId"/>
+        <xs:element type="xs:string" name="DeviceType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

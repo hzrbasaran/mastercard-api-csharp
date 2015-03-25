@@ -1,0 +1,12 @@
+﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AuthorizeCheckoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:anyURI" name="MerchantCallbackURL"/>
+        <xs:element type="xs:string" name="StepupPending"/>
+        <xs:element type="xs:string" name="OAuthVerifier"/>
+        <xs:element type="xs:string" name="PreCheckoutTransactionId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
