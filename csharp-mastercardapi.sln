@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-mastercardapi", "csharp-mastercardapi.csproj", "{137B4C78-C360-47C1-9BAC-5E5E9384A6CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testmastercardapi", "..\Testmastercardapi\Testmastercardapi.csproj", "{DBF06726-006B-4691-BA9A-B527C4884573}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testmastercardapi", "..\TestMasterCardAPI\TestMasterCardAPI.csproj", "{DBF06726-006B-4691-BA9A-B527C4884573}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
