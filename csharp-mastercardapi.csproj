@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="MasterCard\SDK\Connector.cs" />
     <Compile Include="MasterCard\SDK\Environments.cs" />
-    <Compile Include="MasterCard\SDK\MCRuntimeException.cs" />
+    <Compile Include="MasterCard\SDK\MCApiRuntimeException.cs" />
     <Compile Include="MasterCard\SDK\OAuthParameters.cs" />
     <Compile Include="MasterCard\SDK\QueryParameterComparer.cs" />
     <Compile Include="MasterCard\SDK\Serializer.cs" />
