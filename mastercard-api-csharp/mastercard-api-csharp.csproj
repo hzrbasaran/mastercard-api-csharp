@@ -8,8 +8,8 @@
     <ProjectGuid>{137B4C78-C360-47C1-9BAC-5E5E9384A6CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>csharp_openapi</RootNamespace>
-    <AssemblyName>csharp-openapi</AssemblyName>
+    <RootNamespace>csharp_mcapi</RootNamespace>
+    <AssemblyName>csharp-mcapi</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
