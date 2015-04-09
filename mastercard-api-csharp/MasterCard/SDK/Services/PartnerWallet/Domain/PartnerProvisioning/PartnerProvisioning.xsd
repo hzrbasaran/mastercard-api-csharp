@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" elementFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Card" type="Card"/>
+
+  <xs:element name="Errors" type="Errors"/>
+
+  <xs:element name="Profile" type="Profile"/>
+
+  <xs:element name="RegisterWalletRequest" type="RegisterWalletRequest"/>
+
+  <xs:element name="RegisterWalletResponse" type="RegisterWalletResponse"/>
+
+  <xs:element name="RewardProgram" type="RewardProgram"/>
+
+  <xs:element name="ShippingAddress" type="ShippingAddress"/>
+
+  <xs:element name="UpdateWalletRequest" type="UpdateWalletRequest"/>
+
+  <xs:element name="Wallet" type="Wallet"/>
+
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element name="Line1" type="NonEmptyString"/>
+      <xs:element name="Line2" type="NonEmptyString" minOccurs="0"/>
+      <xs:element name="Line3" type="NonEmptyString" minOccurs="0"/>	  
+      <xs:element name="City" type="NonEmptyString"/>
+      <xs:element name="CountrySubdivision" type="NonEmptyString" minOccurs="0"/>
+      <xs:element name="Country" type="Country"/>
+      <xs:element name="PostalCode" type="NonEmptyString" minOccurs="0"/>
+    </xs:sequence>
+ </xs:complexType>
+ 
+  <xs:complexType name="Card">
+    <xs:sequence>
+      <xs:element name="ID" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrandID" type="NonEmptyString"/>
+      <xs:element name="ArtPointer" type="xs:anyURI" minOccurs="0"/>
+      <xs:element name="AccountNumber" type="NonEmptyString"/>
+      <xs:element name="BillingAddress" type="Address"/>
+      <xs:element name="CardHolderName" type="NonEmptyString"/>
+      <xs:element name="ExpiryMonth" type="Month" minOccurs="0"/>
+      <xs:element name="ExpiryYear" type="Year" minOccurs="0"/>	  
+      <xs:element name="Default" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Contact">
+    <xs:sequence>
+      <xs:element name="FirstName" type="NonEmptyString"/>
+      <xs:element name="MiddleName" minOccurs="0">
+	  	<xs:simpleType>
+	  		<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="150"/>
+			</xs:restriction>
+		</xs:simpleType>
+      </xs:element>
+      <xs:element name="LastName" type="NonEmptyString"/>
+      <xs:element name="Gender" type="Gender" minOccurs="0"/>
+      <xs:element name="DateOfBirth" type="DateOfBirth" minOccurs="0"/>
+      <xs:element name="NationalID" minOccurs="0">
+	  	<xs:simpleType>
+	  		<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+				<xs:maxLength value="150"/>
+			</xs:restriction>
+		</xs:simpleType>
+      </xs:element>
+      <xs:element name="Country" type="Country"/>
+      <xs:element name="Language" type="Language" minOccurs="0"/>
+      <xs:element name="MobilePhone" type="Phone"/>
+      <xs:element name="EmailAddress" type="EmailAddress"/>
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <xs:complexType name="Error">
+    <xs:sequence>
+      <xs:element name="Description" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReasonCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="Recoverable" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="Source" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Errors">
+    <xs:sequence>
+      <xs:element name="Error" type="Error" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Profile">
+    <xs:sequence>
+      <xs:element name="ID" type="xs:string" minOccurs="0"/>
+      <xs:element name="Contact" type="Contact"/>
+      <xs:element ref="Card" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="ShippingAddress" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ShippingAddress">
+    <xs:complexContent>
+      <xs:extension base="Address">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" minOccurs="0"/>
+          <xs:element name="RecipientName" type="NonEmptyString"/>
+          <xs:element name="RecipientPhoneNumber" type="Phone"/>
+          <xs:element name="Default" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="RegisterWalletRequest">
+    <xs:sequence>
+      <xs:element name="CheckoutPayload" type="xs:string" minOccurs="0"/>
+      <xs:element ref="Profile"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegisterWalletResponse">
+    <xs:sequence>
+      <xs:element name="Password" type="xs:string"/>
+      <xs:element name="ReturnUrl" type="xs:anyURI"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RewardProgram">
+    <xs:sequence>
+      <xs:element name="ID" type="xs:string" minOccurs="0"/>
+      <xs:element name="ProgramID" type="xs:string"/>
+      <xs:element name="Number" type="xs:string"/>
+      <xs:element name="ExpiryMonth" type="Month" minOccurs="0"/>
+      <xs:element name="ExpiryYear" type="Year" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdateWalletRequest">
+    <xs:sequence>
+      <xs:element ref="Profile" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Wallet">
+    <xs:sequence>
+      <xs:element ref="Card" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="ShippingAddress" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element ref="RewardProgram" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+    <xs:simpleType name="NonEmptyString">
+	 <xs:restriction base="xs:string">
+	   <xs:minLength value="1"/>
+       <xs:whiteSpace value="collapse"/>
+	</xs:restriction>	   
+  </xs:simpleType>	 
+  
+   <xs:simpleType name="Country">
+	<xs:restriction base="xs:string">
+	  <xs:pattern value="[A-Z]{2}"/>
+	</xs:restriction>
+  </xs:simpleType>
+  
+   <xs:simpleType name="Language">
+	<xs:restriction base="xs:string">
+	  <xs:pattern value="[a-z]{2}"/>
+	</xs:restriction>
+  </xs:simpleType>
+     
+  <xs:simpleType name="Month">
+	<xs:restriction base="xs:int">
+		<xs:minInclusive value="1"/>
+		<xs:maxInclusive value="12"/>
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Year">
+	<xs:restriction base="xs:int">
+		<xs:pattern value="\d{4}"/>
+		<xs:minInclusive value="2013"/>
+	</xs:restriction>
+  </xs:simpleType>
+   
+  <xs:simpleType name="EmailAddress">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+(\.[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+)*@[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+(\.[A-Za-z0-9!#-'\*\+\-/=\?\^_`\{-~]+)*"/>
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Gender">
+	<xs:restriction base="xs:token">
+		<xs:enumeration value="M"/>
+		<xs:enumeration value="F"/>
+	</xs:restriction>
+  </xs:simpleType> 
+
+ <xs:complexType name="DateOfBirth">
+    <xs:sequence>
+      <xs:element name="Year">
+  		<xs:simpleType>
+			<xs:restriction base="xs:int">
+				<xs:pattern value="\d{4}"/>
+				<xs:minInclusive value="1900"/>
+			</xs:restriction>
+  		</xs:simpleType>
+  	  </xs:element>	      
+	  <xs:element name="Month" type="Month"/>
+	  <xs:element name="Day">
+	  	<xs:simpleType>
+	  		<xs:restriction base="xs:int">
+				<xs:minInclusive value="1"/>
+				<xs:maxInclusive value="31"/>
+			</xs:restriction>
+		</xs:simpleType>	
+	  </xs:element>
+    </xs:sequence>
+ </xs:complexType> 
+
+  <xs:complexType name="Phone">
+    <xs:sequence>
+      <xs:element name="CountryCode">
+	      <xs:simpleType>
+		    <xs:restriction base="xs:string">
+		      <xs:pattern value="[0-9]+"/>
+		    </xs:restriction>
+		  </xs:simpleType>
+	  </xs:element>
+      <xs:element name="Number">
+	      <xs:simpleType>
+		    <xs:restriction base="xs:string">
+		      <xs:pattern value="[0-9]+"/>
+		    </xs:restriction>
+		  </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>  
+       
+</xs:schema>
+
