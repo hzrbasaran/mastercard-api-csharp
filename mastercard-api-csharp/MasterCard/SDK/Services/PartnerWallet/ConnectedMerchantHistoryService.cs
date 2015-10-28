@@ -1,8 +1,7 @@
-﻿using System;
+﻿using MasterCard.SDK.Services.PartnerWallet.Domain;
+using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-
-using MasterCard.SDK.Services.PartnerWallet.Domain.SwitchAPI;
 
 namespace MasterCard.SDK.Services.PartnerWallet
 {

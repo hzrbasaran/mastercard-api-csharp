@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using MasterCard.SDK.Services.PartnerWallet.Domain.Card;
 using MasterCard.SDK.Util;
-using PartnerWalletSDK.Services.PartnerWallet.Domain.Options;
+using MasterCard.SDK.Services.PartnerWallet.Domain;
 
 namespace MasterCard.SDK.Services.PartnerWallet
 {

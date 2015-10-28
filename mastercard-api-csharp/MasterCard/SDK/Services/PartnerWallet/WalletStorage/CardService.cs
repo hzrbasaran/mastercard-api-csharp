@@ -1,8 +1,7 @@
-﻿using System;
+﻿using MasterCard.SDK.Services.PartnerWallet.Domain.WalletStorage;
+using System;
 using System.Collections.Generic;
-
 using System.Security.Cryptography;
-using MasterCard.SDK.Services.PartnerWallet.Domain.PartnerProvisioning;
 
 namespace MasterCard.SDK.Services.PartnerWallet.WalletStorage
 {
